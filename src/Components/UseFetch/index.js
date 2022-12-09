@@ -14,7 +14,7 @@ export default function UseFetch(url) {
 
   useEffect(() => {
     fetchRandomImage();
-  }, []);
+  });
 
   return [data, fetchRandomImage]
 }
