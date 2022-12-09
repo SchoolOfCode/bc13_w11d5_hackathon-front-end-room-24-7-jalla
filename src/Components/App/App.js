@@ -2,7 +2,9 @@ import './App.css';
 import { useState } from 'react'
 import ImageList from '../ImageList';
 import UseFetch from '../UseFetch';
+import { createContext } from "react";
 
+export const ImageContext = createContext(null);
 function App() {
   // state that holds the array of fave images 
   const [image, setImage] = useState([])
@@ -32,6 +34,9 @@ function App() {
   }
 
   return (
+    <ImageContext.Provider
+      value={image}
+      >
     <div className="App">
 
       <h1>Imagorium</h1>
@@ -46,9 +51,10 @@ function App() {
         <button className='buttons' onClick={getImagesFromDatabase}>Display my favourites</button>
       </div>
 
-      <ImageList image={image} />
+      <ImageList/>
 
     </div>
+    </ImageContext.Provider>
   );
 }
 
