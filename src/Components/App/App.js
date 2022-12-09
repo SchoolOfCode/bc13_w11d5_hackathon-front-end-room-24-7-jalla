@@ -19,7 +19,7 @@ function App() {
       image_link: data
     }
 
-    await fetch(url, {
+    await fetch(`${url}/images`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(imageToAdd)
@@ -28,7 +28,7 @@ function App() {
   }
 
   async function getImagesFromDatabase() {
-    const response = await fetch(url);
+    const response = await fetch(`${url}/images`);
     const allImageData = await response.json()
     const allImages = allImageData.payload
     setImage(allImages)
@@ -38,7 +38,7 @@ function App() {
     console.log(id)
     for (let i = 0; i < image.length; i++) {
       if (image[i].id === id) {
-        await fetch(`${url}/${id}`, {
+        await fetch(`${url}/images/${id}`, {
           method: "DELETE"
         })
         const deleted = [...image.slice(0, i), ...image.slice(i + 1)]
