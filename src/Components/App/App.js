@@ -1,26 +1,53 @@
 import './App.css';
 import { useState } from 'react'
 import ImageList from '../ImageList';
-import Dropdown from '../Dropdown';
 import UseFetch from '../UseFetch';
 
 function App() {
   // state that holds the array of fave images 
-  const [image, setImage] = useState()
-  const [category, setCategory] = useState('movie')
-  const url = category !== "" ? `https://api.lorem.space/image/${category}?w=150&h=220` : undefined;
-  const { data, error } = UseFetch(url);
-  
-  if (error) {
-    return <p>Error!</p>;
+  const [image, setImage] = useState([])
+  const [data, fetchRandomImage] = UseFetch(`https://source.unsplash.com/random`);
+
+  const url = "http://localhost:3001/images"
+
+  async function addToDatabase() {
+    
+    const imageToAdd = {
+      image_link: data
+    }
+
+    const addImage = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(imageToAdd)
+    })
+  }
+
+  async function getImagesFromDatabase() {
+    const response = await fetch(url);
+    const allImageData = await response.json()
+    const allImages = allImageData.payload
+    console.log(allImages)
+    setImage(allImages)
   }
 
   return (
     <div className="App">
+
       <h1>Imagorium</h1>
-      <img src={data} alt=""></img>
-      <Dropdown/>
-      <ImageList image={image}/>
+
+      <div className='fetch-image'>
+        <button className='buttons' onClick={fetchRandomImage}>Click me for a new pic</button>
+        <img id="img" src={data} alt=""></img>
+      </div>
+
+      <div className='db-buttons'>
+        <button className='buttons' onClick={addToDatabase}>Add to my favourites</button>
+        <button className='buttons' onClick={getImagesFromDatabase}>Display my favourites</button>
+      </div>
+
+      <ImageList image={image} />
+
     </div>
   );
 }
