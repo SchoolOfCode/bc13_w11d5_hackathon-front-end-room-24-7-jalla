@@ -11,7 +11,7 @@ function App() {
   const [image, setImage] = useState([])
   const [data, fetchRandomImage] = UseFetch(`https://source.unsplash.com/random`);
 
-  const url = process.env.BACKEND_REACT_URL ?? "http://localhost:3000";
+  const url = process.env.BACKEND_REACT_URL
 
   // hi
 
