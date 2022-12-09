@@ -13,6 +13,8 @@ function App() {
 
   const url = process.env.BACKEND_REACT_URL ?? "http://localhost:3000";
 
+  // hi
+
   async function addToDatabase() {
     
     const imageToAdd = {
