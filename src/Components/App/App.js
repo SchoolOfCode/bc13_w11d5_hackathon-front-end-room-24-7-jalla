@@ -6,13 +6,12 @@ import { createContext } from "react";
 
 export const ImageContext = createContext(null);
 
-const url = process.env.REACT_APP_BACKEND_REACT_URL
+const url = process.env.REACT_APP_BACKEND_URL
 
 function App() {
 
   const [image, setImage] = useState([])
   const [data, fetchRandomImage] = UseFetch(`https://source.unsplash.com/random`);
-
 
   async function addToDatabase() {
     
