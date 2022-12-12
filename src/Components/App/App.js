@@ -52,7 +52,7 @@ function App() {
     <ImageContext.Provider value={image}>
       <div className="App">
 
-        <h1 id='h1-tag'>IMAGORIUM: find your new sreensaver</h1>
+        <h1 id='h1-tag'>IMAGORIUM: find your new screensaver</h1>
 
         <div className='fetch-image'>
           <button className='buttons' onClick={fetchRandomImage}>Click me for a new pic</button>
