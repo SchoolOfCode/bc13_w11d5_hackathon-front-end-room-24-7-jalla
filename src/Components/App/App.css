@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+#h1-tag{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 .fetch-image {
   display: flex;
   flex-direction: column;
@@ -58,3 +62,5 @@
   align-items: center;
   padding-bottom: 20px;
 }
+
+

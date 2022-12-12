@@ -14,7 +14,7 @@ function App() {
   const [data, fetchRandomImage] = UseFetch(`https://source.unsplash.com/random`);
 
   async function addToDatabase() {
-    
+
     const imageToAdd = {
       image_link: data
     }
@@ -50,23 +50,23 @@ function App() {
 
   return (
     <ImageContext.Provider value={image}>
-    <div className="App">
+      <div className="App">
 
-      <h1>Imagorium</h1>
+        <h1 id='h1-tag'>IMAGORIUM: find your new sreensaver</h1>
 
-      <div className='fetch-image'>
-        <button className='buttons' onClick={fetchRandomImage}>Click me for a new pic</button>
-        <img id="img" src={data} alt=""></img>
+        <div className='fetch-image'>
+          <button className='buttons' onClick={fetchRandomImage}>Click me for a new pic</button>
+          <img id="img" src={data} alt=""></img>
+        </div>
+
+        <div className='db-buttons'>
+          <button className='buttons' onClick={addToDatabase}>Add to my favourites</button>
+          <button className='buttons' onClick={getImagesFromDatabase}>Display my favourites</button>
+        </div>
+
+        <ImageList deleteImageFromDatabase={deleteImageFromDatabase} />
+
       </div>
-
-      <div className='db-buttons'>
-        <button className='buttons' onClick={addToDatabase}>Add to my favourites</button>
-        <button className='buttons' onClick={getImagesFromDatabase}>Display my favourites</button>
-      </div>
-
-      <ImageList deleteImageFromDatabase={deleteImageFromDatabase}/>
-
-    </div>
     </ImageContext.Provider>
   );
 }
