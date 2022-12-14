@@ -1,0 +1,66 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#h1-tag{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.fetch-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  height: 300px;
+}
+
+.buttons {
+  width: 500px;
+  height: 50px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.buttons:after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.buttons:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+.db-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+
